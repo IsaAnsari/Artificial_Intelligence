@@ -1,0 +1,11 @@
+install.packages("rpart")
+library(rpart)
+install.packages("rpart.plot")
+library(rpart.plot)
+getwd()
+setwd("D:/AIPRAC")
+d <- read.csv("restaurant.csv")
+mytree <- rpart(Wait ~ ., data = d, minsplit = 1, minbucket = 1)
+rpart.plot(mytree)
+p<-predict(mytree)
+p
